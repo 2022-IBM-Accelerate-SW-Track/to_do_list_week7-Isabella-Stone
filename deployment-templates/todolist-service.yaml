@@ -1,10 +1,11 @@
+cat << "EOF" > deployment-templates/todolist-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
   name: todolist-service
 spec:
   type: NodePort
-  # Each Pod in the Deployment that you created previously has below label. So the Pods in the Deployment will become members of this Service.
+  # Each Pod in the Deployment that you created previously has the below label. So the Pods in the Deployment will become members of this Service.
   selector:
     app: to-do-list
   ports:
@@ -14,3 +15,4 @@ spec:
       # Optional field
       # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
       nodePort: 30007
+EOF
